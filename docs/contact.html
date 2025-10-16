@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Liên hệ • Nhà thuốc LC</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --lc-blue: #0d47a1;
+      }
+      .navbar {
+        background: var(--lc-blue);
+      }
+      .navbar .nav-link,
+      .navbar-brand {
+        color: #fff !important;
+      }
+      .hotbar {
+        background: #f8fbff;
+        border-bottom: 1px solid #e7eef8;
+      }
+      .map-embed {
+        border-radius: 1rem;
+        overflow: hidden;
+      }
+      .branch-card:hover {
+        box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+        transform: translateY(-2px);
+      }
+      .branch-card {
+        transition: 0.15s ease;
+      }
+      .contact-card {
+        border-left: 4px solid var(--lc-blue);
+      }
+      footer {
+        background: #0b2e68;
+        color: #cfe0ff;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <!-- NAVBAR CHUẨN -->
+    <nav class="navbar navbar-expand-lg lc-navbar">
+      <div class="container py-2">
+        <!-- Logo -->
+        <a class="navbar-brand fw-bold text-white" href="index.html">
+          <i class="bi bi-capsule me-2"></i>Nhà thuốc LC
+        </a>
+
+        <button
+          class="navbar-toggler bg-light"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div id="mainNav" class="collapse navbar-collapse">
+          <!-- Menu trái -->
+          <ul class="navbar-nav ms-2 me-3">
+            <li class="nav-item">
+              <a class="nav-link text-white" href="index.html">Trang chủ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="catalog.html">Sản phẩm</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="contact.html">Liên hệ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="checkout.html">Thanh toán</a>
+            </li>
+          </ul>
+
+          <!-- Ô tìm kiếm dạng "pill" -->
+          <form class="d-flex ms-auto me-3 search-pill" action="catalog.html">
+            <input
+              class="form-control"
+              name="q"
+              placeholder="Tìm thuốc, TPBVSK, thiết bị y tế…"
+            />
+            <button class="btn btn-light ms-2" type="submit" title="Tìm">
+              <i class="bi bi-search"></i>
+            </button>
+          </form>
+
+          <!-- Tài khoản / Giỏ (JS sẽ thay nội dung) -->
+          <ul class="navbar-nav" id="authArea"></ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HOTLINE BAR -->
+    <div class="hotbar">
+      <div class="container py-2 text-center text-md-start">
+        <div class="row g-3 align-items-center">
+          <div class="col-md-4">
+            <i class="bi bi-telephone text-primary me-1"></i> Hotline miễn phí:
+            <b>1800 0000</b> (07:00–22:00)
+          </div>
+          <div class="col-md-4">
+            <i class="bi bi-headset text-success me-1"></i> Dược sĩ tư vấn 24/7
+          </div>
+          <div class="col-md-4">
+            <i class="bi bi-envelope-paper text-warning me-1"></i> Email:
+            giabaosupport@gmail.com
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container my-4">
+      <div class="row g-4">
+        <!-- FORM LIÊN HỆ -->
+        <div class="col-lg-6">
+          <div class="card contact-card h-100">
+            <div class="card-body">
+              <h5 class="fw-semibold mb-3">
+                <i class="bi bi-chat-dots text-primary me-2"></i>Liên hệ dược sĩ
+              </h5>
+              <form onsubmit="return false">
+                <div class="row g-2">
+                  <div class="col-md-6">
+                    <input class="form-control" placeholder="Họ tên" />
+                  </div>
+                  <div class="col-md-6">
+                    <input
+                      class="form-control"
+                      placeholder="Số điện thoại hoặc Email"
+                    />
+                  </div>
+                  <div class="col-12">
+                    <select class="form-select">
+                      <option selected>Chủ đề tư vấn</option>
+                      <option>Thuốc kê đơn</option>
+                      <option>Thực phẩm bảo vệ sức khỏe</option>
+                      <option>Thiết bị y tế</option>
+                      <option>Khác…</option>
+                    </select>
+                  </div>
+                  <div class="col-12">
+                    <textarea
+                      class="form-control"
+                      rows="4"
+                      placeholder="Triệu chứng/thuốc đang dùng…"
+                    ></textarea>
+                  </div>
+                </div>
+                <div class="d-flex gap-2 mt-3">
+                  <button class="btn btn-primary">
+                    <i class="bi bi-send"></i> Gửi yêu cầu
+                  </button>
+                  <a class="btn btn-outline-success" href="tel:18000000"
+                    ><i class="bi bi-telephone"></i> Gọi ngay</a
+                  >
+                </div>
+                <div class="form-text mt-2">
+                  Chúng tôi phản hồi trong vòng 15–30 phút giờ hành chính.
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- BẢN ĐỒ + GIỜ LÀM VIỆC -->
+        <div class="col-lg-6">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="fw-semibold mb-3">
+                <i class="bi bi-geo-alt text-danger me-2"></i>Tìm nhà thuốc gần
+                bạn
+              </h5>
+              <div class="ratio ratio-16x9 map-embed">
+                <!-- Thay iframe Google Maps doanh nghiệp khi có -->
+                <iframe
+                  src="https://www.openstreetmap.org/export/embed.html?bbox=106.695%2C10.75%2C106.725%2C10.78&layer=mapnik"
+                  style="border: 0"
+                  loading="lazy"
+                ></iframe>
+              </div>
+              <div class="row mt-3 g-2">
+                <div class="col-6 small">
+                  <i class="bi bi-clock text-primary"></i> <b>Giờ làm việc:</b
+                  ><br />07:00–22:00 (hàng ngày)
+                </div>
+                <div class="col-6 small">
+                  <i class="bi bi-truck text-warning"></i> <b>Giao nhanh:</b
+                  ><br />2H nội thành HN/HCM
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DANH SÁCH CHI NHÁNH -->
+      <h5 class="mt-4">Chi nhánh tiêu biểu</h5>
+      <div class="row g-3">
+        <div class="col-md-4">
+          <div class="card branch-card h-100">
+            <div class="card-body">
+              <div class="fw-semibold">CN Quận 1</div>
+              <div class="small text-muted">
+                12 Nguyễn Huệ, P.Bến Nghé, Q.1, TP.HCM
+              </div>
+              <div class="small">
+                <i class="bi bi-telephone"></i> 028 38 000 001
+              </div>
+              <a
+                class="btn btn-sm btn-outline-primary mt-2"
+                target="_blank"
+                href="https://maps.google.com/?q=12%20Nguyen%20Hue%20Q1%20HCM"
+                >Xem bản đồ</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card branch-card h-100">
+            <div class="card-body">
+              <div class="fw-semibold">CN Quận 7</div>
+              <div class="small text-muted">
+                45 Nguyễn Thị Thập, Q.7, TP.HCM
+              </div>
+              <div class="small">
+                <i class="bi bi-telephone"></i> 028 38 000 007
+              </div>
+              <a
+                class="btn btn-sm btn-outline-primary mt-2"
+                target="_blank"
+                href="https://maps.google.com/?q=45%20Nguyen%20Thi%20Thap%20Q7%20HCM"
+                >Xem bản đồ</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card branch-card h-100">
+            <div class="card-body">
+              <div class="fw-semibold">CN Hà Nội</div>
+              <div class="small text-muted">123 Kim Mã, Ba Đình, Hà Nội</div>
+              <div class="small">
+                <i class="bi bi-telephone"></i> 024 38 000 123
+              </div>
+              <a
+                class="btn btn-sm btn-outline-primary mt-2"
+                target="_blank"
+                href="https://maps.google.com/?q=123%20Kim%20Ma%20Ba%20Dinh%20Ha%20Noi"
+                >Xem bản đồ</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <div class="row g-4 mt-4">
+        <div class="col-lg-6">
+          <h5>Câu hỏi thường gặp</h5>
+          <div class="accordion" id="faq">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#f1"
+                >
+                  Tôi có thể đặt thuốc kê đơn online không?
+                </button>
+              </h2>
+              <div
+                id="f1"
+                class="accordion-collapse collapse show"
+                data-bs-parent="#faq"
+              >
+                <div class="accordion-body small">
+                  Với thuốc kê đơn, bạn cần cung cấp đơn của bác sĩ. Dược sĩ sẽ
+                  gọi xác minh trước khi giao.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#f2"
+                >
+                  Thời gian giao hàng bao lâu?
+                </button>
+              </h2>
+              <div
+                id="f2"
+                class="accordion-collapse collapse"
+                data-bs-parent="#faq"
+              >
+                <div class="accordion-body small">
+                  Nội thành HN/HCM: 2 tiếng. Tỉnh thành khác: 1–3 ngày làm việc.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#f3"
+                >
+                  Tôi muốn xuất hóa đơn VAT?
+                </button>
+              </h2>
+              <div
+                id="f3"
+                class="accordion-collapse collapse"
+                data-bs-parent="#faq"
+              >
+                <div class="accordion-body small">
+                  Có. Vui lòng cung cấp thông tin doanh nghiệp khi đặt hàng hoặc
+                  liên hệ hotline để được hỗ trợ.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- KÊNH HỖ TRỢ -->
+        <div class="col-lg-6">
+          <h5>Hỗ trợ nhanh</h5>
+          <div class="row g-3">
+            <div class="col-6">
+              <a class="btn btn-outline-success w-100" href="tel:18000000">
+                <i class="bi bi-telephone me-1"></i> 1800 0000
+              </a>
+            </div>
+            <div class="col-6">
+              <a
+                class="btn btn-outline-primary w-100"
+                href="mailto:support@nhathuoclc.vn"
+              >
+                <i class="bi bi-envelope me-1"></i> Email
+              </a>
+            </div>
+            <div class="col-6">
+              <a class="btn btn-outline-info w-100" target="_blank" href="#">
+                <i class="bi bi-messenger me-1"></i> Messenger
+              </a>
+            </div>
+            <div class="col-6">
+              <a class="btn btn-outline-success w-100" target="_blank" href="#">
+                <i class="bi bi-whatsapp me-1"></i> Zalo/WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="mt-5 py-4">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="fw-bold mb-2">
+              <i class="bi bi-capsule"></i> Nhà thuốc LC
+            </div>
+            <div class="small">
+              Hệ thống nhà thuốc chuẩn GPP – Chính hãng – Tư vấn tận tâm.
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="fw-bold mb-2">Hỗ trợ</div>
+            <div class="small">Hotline: 1800 0000</div>
+            <div class="small">Email: giabaosupport@gmail.com</div>
+          </div>
+          <div class="col-md-4">
+            <div class="fw-bold mb-2">Liên kết nhanh</div>
+            <div class="small">
+              <a class="text-light" href="catalog.html">Sản phẩm</a> •
+              <a class="text-light" href="orders.html">Đơn hàng</a> •
+              <a class="text-light" href="profile.html">Tài khoản</a> •
+              <a class="text-light" href="contact.html">Liên hệ</a>
+            </div>
+          </div>
+        </div>
+        <div class="small mt-3">© 2025 LC Pharmacy.</div>
+      </div>
+    </footer>
+
+    <script src="assets/js/app.js"></script>
+    <script>
+      renderAuthNav();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
